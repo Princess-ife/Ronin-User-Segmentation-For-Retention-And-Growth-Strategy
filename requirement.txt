@@ -6,18 +6,18 @@ matplotlib
 seaborn
 joblib
 path
-nearest neighbor
+nearest-neighbor
 kmeans
 agglomerativeclustering
 dbscan
-minibatch k-means
+minibatch-k-means
 os
 sklearn.clusters
 sklearn.neighbors
-silhouette score
+silhouette-score
 sklearn.metrics
 numpy
-scipy cluster hierarchy
+scipy-cluster-hierarchy
 PCA
 sklearn.decomposition
 standardscaler
