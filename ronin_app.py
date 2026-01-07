@@ -274,11 +274,11 @@ with st.sidebar.expander("Model & Data Status", expanded=True):
                 cls = model_obj.__class__.__name__
             except Exception:
                 cls = "estimator"
-            st.write(f"{name}: ✅ (estimator: {cls})")
+            st.write(f"{name}: (estimator: {cls})")
         elif saved_label_arrays.get(label_key) is not None:
-            st.write(f"{name}: ⚠️ saved labels found (model not available)")
+            st.write(f"{name}:  saved labels found (model not available)")
         else:
-            st.write(f"{name}: ❌ missing")
+            st.write(f"{name}:  missing")
 
     status('K-Means', kmeans_model, 'kmeans')
     status('Agglomerative', agg_model, 'agg')
@@ -465,10 +465,10 @@ elif page == "Cluster Explorer":
     # Cluster selector
     clusters = sorted(data[cluster_col].unique())
     selected_cluster = st.selectbox(
-    "Select Cluster to Explore",
-    options=clusters,
-    format_func=lambda c: format_cluster_label(model_choice, int(c)) if str(c).strip('-').isdigit() else c
-)
+        "Select Cluster to Explore",
+        options=clusters,
+        format_func=lambda c: format_cluster_label(model_choice, int(c)) if str(c).strip('-').isdigit() else str(c)
+    )
     
     cluster_data = data[data[cluster_col] == selected_cluster]
     
