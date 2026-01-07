@@ -465,10 +465,10 @@ elif page == "Cluster Explorer":
     # Cluster selector
     clusters = sorted(data[cluster_col].unique())
     selected_cluster = st.selectbox(
-        "Select Cluster to Explore",
-        options=clusters,
-        format_func=lambda c: format_cluster_label(model_choice, int(c))
-    )
+    "Select Cluster to Explore",
+    options=clusters,
+    format_func=lambda c: format_cluster_label(model_choice, int(c)) if str(c).strip('-').isdigit() else c
+)
     
     cluster_data = data[data[cluster_col] == selected_cluster]
     
