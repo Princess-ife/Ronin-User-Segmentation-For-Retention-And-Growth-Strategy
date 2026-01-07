@@ -195,15 +195,15 @@ CLUSTER_DESCRIPTIONS = {
 
 
 def format_cluster_label(model_name, cluster_id):
-    """Return a human-friendly label for a cluster, e.g. 'Cluster 0 — Casual Gamers 💤'."""
-    desc = CLUSTER_DESCRIPTIONS.get(model_name, {})
-    info = desc.get(cluster_id)
+    """Return a human-friendly label for a cluster..."""
+    descr = CLUSTER_DESCRIPTIONS.get(model_name, {})
+    info = descr.get(cluster_id)
+    
     if isinstance(info, dict):
-        return f"Cluster {cluster_id} — {info.get('name')} {info.get('icon','')}"
+        return info.get('name', f"Cluster {cluster_id}")
     if isinstance(info, str):
-        return f"Cluster {cluster_id} — {info}"
-    return f"Cluster {cluster_id}"
-
+        return f"Cluster {cluster_id}"
+    
 
 def get_cluster_color(model_name, cluster_id):
     info = CLUSTER_DESCRIPTIONS.get(model_name, {}).get(cluster_id)
