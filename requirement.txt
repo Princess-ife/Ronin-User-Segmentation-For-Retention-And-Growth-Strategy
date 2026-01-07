@@ -1,0 +1,23 @@
+davies_bouldin_score
+streamlit
+plotly
+pandas
+matplotlib
+seaborn
+joblib
+path
+nearest neighbor
+kmeans
+agglomerativeclustering
+dbscan
+minibatch k-means
+os
+sklearn.clusters
+sklearn.neighbors
+silhouette score
+sklearn.metrics
+numpy
+scipy cluster hierarchy
+PCA
+sklearn.decomposition
+standardscaler
