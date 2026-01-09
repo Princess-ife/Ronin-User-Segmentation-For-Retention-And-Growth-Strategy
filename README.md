@@ -339,6 +339,66 @@ These are dedicated free-to-play (F2P) grinders who play daily but refuse to spe
 →  Churn Risk (Problem 4):  PARADOX - High engagement BUT if their one game fails, massive churn.</p>
 
 
+<h1>Model Training and Testing</h1>
+
+<p>I trained 4 different clustering algorithms for comparison, and they are:</p>
+
+<h2>Model 1: K-Means (Primary Model)</h2>
+
+<p>Algorithm: Standard K-Means clustering
+  
+Parameters: k=5, random_state=42
+
+Results:
+
+5 well-balanced clusters
+
+Silhouette Score: ~0.615
+
+Clear separation between user types
+
+Strengths: Fast, interpretable, balanced cluster sizes
+
+Chosen as the final model</p>
+
+<h2>Model 2: MiniBatch K-Means</h2>
+
+<p>Algorithm: Faster variant of K-Means for large datasets
+  
+Results: Nearly identical cluster distribution to standard K-Means
+
+Strengths: 5-10x faster training
+
+Use case: Production deployment for real-time clustering</p>
+
+<h2>Model 3: Agglomerative (Hierarchical) Clustering</h2>
+
+<p>Algorithm: Bottom-up hierarchical clustering
+  
+Results: Similar cluster patterns to K-Means
+
+Strengths: Dendrogram visualization confirms k=5 is optimal
+
+Use case: Validation and hierarchy exploration</p>
+
+
+<h2>Model 4: DBSCAN (Density-Based)</h2>
+
+<p>Algorithm: Density-based clustering with automatic cluster detection
+  
+Parameters: eps=1.5, min_samples=20
+
+Results:
+
+Found 5 clusters + 384 noise points (5.7%)
+
+One massive cluster (90.83%) with 4 tiny clusters
+
+Insights: Confirmed most users are similar (casual), with small, distinct outlier groups
+
+Limitation: Not ideal for this use case due to imbalanced clusters</p>
+
+
 
 
 
